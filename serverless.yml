@@ -1,13 +1,9 @@
 service: aws-node-project
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs18.x
-
-plugins:
-  - serverless-plugin-typescript  
-  - serverless-offline
 
 functions:
   hello:
@@ -15,5 +11,8 @@ functions:
     events:
       - http:
           path: hello
-          method: get 
-          
+          method: get
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
