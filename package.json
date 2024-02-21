@@ -1,6 +1,10 @@
 {
   "scripts": {
-    "test:handler": "jest"
+    "test:handler": "jest",
+    "build": "tsc",
+    "dev": "serverless offline start",
+    "deploy": "serverless deploy",
+    "kill": "serverless remove"
   },
   "jest": {
     "preset": "ts-jest",
@@ -13,11 +17,11 @@
     "serverless-plugin-typescript": "^2.1.5",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@types/aws-lambda": "^8.10.109"
   },
   "dependencies": {
-    "@middy/core": "^5.2.3",
-    "@middy/http-json-body-parser": "^5.2.3",
-    "@types/aws-lambda": "^8.10.134"
+    "@middy/core": "^4.0.9",
+    "@middy/http-json-body-parser": "^4.0.9"
   }
 }
