@@ -5,10 +5,10 @@
       "strictNullChecks": true,
       "sourceMap": true,
       "allowJs": true,
-      "target": "es6",
       "jsx": "react-jsx",
       "outDir": ".build",
-      "module": "commonjs",
+      "target": "esnext",
+      "module": "esnext",
       "moduleResolution": "node",
       "esModuleInterop": true,
       "experimentalDecorators": true,
@@ -16,4 +16,5 @@
       "lib": ["ESNext"],
       "rootDir": "./"
     },
+    "exclude": ["node_modules", "**/*.test.ts"]
   }

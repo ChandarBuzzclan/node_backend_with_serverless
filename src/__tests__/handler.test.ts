@@ -1,13 +1,17 @@
+import { APIGatewayEvent } from "aws-lambda";
+import  helloHandler  from "../function/handler"; // Import the file containing your lambda handler
 
-import { hello }  from '../function/handler';
-describe('hello function', () => {
-  test('should return a 200 status code and a success message', async () => {
-    const event = {}; 
-    const response = await hello(event);
-    expect(response.statusCode).toBe(200);
-    expect(response.body).toBeDefined();
-    const responseBody = JSON.parse(response.body);
-    expect(responseBody.message).toBe('Go Serverless v3.0! Your function executed successfully!');
-    expect(responseBody.input).toEqual(event);
+describe("helloHandler", () => {
+  it("should return 'Hello World' message when no query parameter is provided", async () => {
+    const event: APIGatewayEvent = { queryStringParameters: null } as APIGatewayEvent;
+    const result = await helloHandler(event);
+
+    expect(result.statusCode).toBe(200);
+    expect(result.headers?.["Content-Type"]).toBe("application/json");
+
+    const body = JSON.parse(result.body);
+    expect(body.message).toBe("Hello World ");
   });
+
 });
+
